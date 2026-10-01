@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa ONG</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Nossa ONG</h1>
+
+        <nav class="menu-principal" aria-label="Navegação principal">
+
+            <input
+                type="checkbox"
+                id="menu-toggle"
+                class="menu-toggle">
+
+            <label for="menu-toggle" class="menu-hamburguer">
+                <span class="icone-hamburguer" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+                <span>Menu</span>
+            </label>
+
+            <ul class="menu-lista">
+
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+
+                <li class="tem-submenu">
+
+                    <button
+                        type="button"
+                        class="submenu-trigger"
+                        aria-haspopup="true">
+                        Projetos
+                    </button>
+
+                    <ul class="submenu">
+
+                        <li>
+                            <a href="#projetos/campanhas">
+                                Campanhas de doação
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#projetos/voluntariado">
+                                Voluntariado
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="#cadastro">Participe</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main id="app"></main>
+
+    <footer>
+        <p>&copy; 2026 Nossa ONG. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Biblioteca externa para manipulação de datas -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- Módulos da aplicação -->
+    <script src="../js/modules/dados.js"></script>
+    <script src="../js/modules/templates.js"></script>
+    <script src="../js/modules/storage.js"></script>
+    <script src="../js/modules/validacao.js"></script>
+
+    <!-- JavaScript principal da aplicação -->
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>

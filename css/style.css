@@ -394,16 +394,40 @@ form input:not([type="radio"]) {
         background-color 0.25s ease;
 }
 
-/* Campo preenchido corretamente */
-form input:not([type="radio"]):valid {
+/* Estados de validação controlados pelo JavaScript */
+
+form input:not([type="radio"]).campo-sucesso {
     border-color: var(--cor-sucesso);
     background-color: #F1F8F4;
 }
 
-/* Campo com valor inválido */
-form input:not([type="radio"]):invalid {
+form input:not([type="radio"]).campo-erro {
     border-color: var(--cor-erro);
     background-color: #FFF5F5;
+}
+
+.mensagem-validacao {
+    display: block;
+    margin-top: var(--espaco-xs);
+    font-size: var(--texto-xs);
+}
+
+.mensagem-validacao.erro {
+    color: var(--cor-erro);
+}
+
+fieldset.grupo-erro {
+    border-color: var(--cor-erro);
+}
+
+.alerta-erro {
+    color: #7A201A;
+    background-color: #FFF1F0;
+    border-left-color: var(--cor-erro);
+}
+
+.feedback-formulario {
+    margin-top: var(--espaco-md);
 }
 
 /* Campo selecionado para edição */

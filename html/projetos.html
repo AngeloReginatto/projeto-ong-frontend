@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nossa ONG - Início</title>
+  <title>Nossa ONG - Projetos Sociais</title>
 </head>
 <body>
   <header>
-    <h1>Nossa ONG</h1>
+    <h1>Projetos Sociais</h1>
     <nav class="menu-principal" aria-label="Navegação principal">
 
         <input
@@ -63,32 +63,65 @@
 
   <main>
     <section>
-      <h2>Quem Somos</h2>
+      <h2>Apresentação dos projetos sociais</h2>
+
       <picture>
-        <source srcset="img/ong-voluntariado.png" type="image/png">
-        <img src="img/ong-voluntariado.jpg"
+        <source srcset="../imagens/ong-voluntariado.png" type="image/png">
+        <img src="../imagens/ong-voluntariado.jpg"
              alt="Ilustração de pessoas voluntárias reunidas em uma ação social">
       </picture>
-      <p>Somos uma organização dedicada ao desenvolvimento de ações sociais e projetos que buscam contribuir para a melhoria da qualidade de vida da comunidade.</p>
+
+      <p>Nossos projetos buscam atender necessidades da comunidade por meio de campanhas solidárias, arrecadações e ações de voluntariado.</p>
+    </section>
+
+    <section class="area-alertas">
+       <h2>Atualizações dos projetos</h2>
+
+       <div class="alerta alerta-informacao" role="status">
+            <strong>Informação:</strong>
+            A campanha de arrecadação está recebendo novas doações.
+       </div>
+
+    <div class="alerta alerta-sucesso" role="status">
+        <strong>Projeto ativo:</strong>
+        As inscrições para trabalho voluntário estão abertas.
+    </div>
+</section>
+
+    <section id="campanhas">
+
+       <h2>Campanhas de doação</h2>
+
+        <div data-lista-projetos="campanhas"></div>
+
+    </section>
+
+    <section id="voluntariado">
+
+       <h2>Oportunidades de voluntariado</h2>
+
+       <div data-lista-projetos="voluntariado"></div>
+
     </section>
 
     <section>
-      <h2>Nossa Missão</h2>
-      <p>Nossa missão é promover ações solidárias, incentivar o voluntariado e aproximar pessoas interessadas em contribuir para o desenvolvimento social.</p>
+      <h2>Como participar</h2>
+      <p>Para contribuir financeiramente ou realizar trabalho voluntário, acesse a página de cadastro e informe seus dados e sua forma de participação.</p>
+      <p><a href="cadastro.html">Acessar cadastro de participação</a></p>
     </section>
+    <div class="toast toast-sucesso"
+         role="status"
+        aria-live="polite">
 
-    <section>
-      <h2>Entre em Contato</h2>
-      <address>
-        <p>E-mail: <a href="mailto:angelo@reginatto.com">angelo@reginatto.com</a></p>
-        <p>Telefone: <a href="tel:+5551999999999">(51) 99999-9999</a></p>
-        <p>Endereço: Rua Exemplo, 100 - Centro</p>
-      </address>
-    </section>
+       <strong>Participação disponível</strong>
+       <span>Cadastre-se para colaborar com nossos projetos.</span>
+
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2026 Nossa ONG. Todos os direitos reservados.</p>
   </footer>
+  <script src="../js/main.js"></script>
 </body>
 </html>

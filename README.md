@@ -51,9 +51,26 @@ projeto_ong_frontend/
         └── validacao.js
 ```
 
-## Execução
+## Pré-requisitos
 
-Abra o arquivo `html/index.html` em um navegador para executar a aplicação.
+Para executar o projeto localmente é necessário apenas:
+
+- navegador web atualizado;
+- acesso aos arquivos do projeto.
+
+Não há necessidade de instalar dependências, pois a aplicação utiliza HTML, CSS e JavaScript executados diretamente no navegador. A biblioteca Day.js é carregada por CDN.
+
+## Instalação e execução local
+
+1. Clone ou baixe o repositório.
+2. Acesse a pasta do projeto.
+3. Abra o arquivo `html/index.html` em um navegador.
+
+O projeto não requer instalação de pacotes ou geração de build para execução local.
+
+## Build e testes
+
+A versão atual não utiliza ferramentas de build ou uma suíte automatizada de testes. A validação é realizada diretamente no navegador e por meio das ferramentas de desenvolvimento e acessibilidade utilizadas durante o projeto.
 
 ## Versionamento
 

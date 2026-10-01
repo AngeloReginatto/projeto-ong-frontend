@@ -143,9 +143,17 @@ function obterMensagemValidacao(campo) {
         mensagem.className =
             'mensagem-validacao erro';
 
+        mensagem.id =
+            `${campo.id}-erro`;
+
         mensagem.setAttribute(
             'role',
             'alert'
+        );
+
+        campo.setAttribute(
+            'aria-describedby',
+            mensagem.id
         );
 
         campo.insertAdjacentElement(
@@ -257,6 +265,10 @@ function validarParticipacao(formulario) {
         !valido
     );
 
+    fieldset.setAttribute(
+        'aria-invalid',
+        String(!valido)
+    );
 
     let mensagem =
         fieldset.querySelector(
@@ -274,9 +286,17 @@ function validarParticipacao(formulario) {
         mensagem.className =
             'mensagem-validacao erro mensagem-participacao';
 
+        mensagem.id =
+            'participacao-erro';
+
         mensagem.setAttribute(
             'role',
             'alert'
+        );
+
+        fieldset.setAttribute(
+            'aria-describedby',
+            mensagem.id
         );
 
         fieldset.appendChild(

@@ -6,15 +6,25 @@ const templates = {
             <h2>Quem Somos</h2>
 
             <picture>
+                <source
+                    srcset="
+                        ../imagens/nossa-ong-640.webp 640w,
+                        ../imagens/nossa-ong-1200.webp 1200w
+                    "
+                    sizes="(max-width: 768px) 100vw, 1200px"
+                    type="image/webp">
 
                 <source
-                    srcset="../imagens/ong-voluntariado.png"
-                    type="image/png">
+                    srcset="../imagens/nossa-ong-1200.jpg"
+                    type="image/jpeg">
 
                 <img
-                    src="../imagens/ong-voluntariado.jpg"
-                    alt="Ilustração de pessoas voluntárias reunidas em uma ação social">
-
+                    src="../imagens/nossa-ong-1200.jpg"
+                    alt="Grupo de pessoas unidas em ação solidária promovida pela ONG"
+                    width="1200"
+                    height="600"
+                    loading="lazy"
+                    decoding="async">
             </picture>
 
             <p>
@@ -75,15 +85,25 @@ const templates = {
             <h2>Apresentação dos projetos sociais</h2>
 
             <picture>
+                <source
+                    srcset="
+                        ../imagens/nossa-ong-640.webp 640w,
+                        ../imagens/nossa-ong-1200.webp 1200w
+                    "
+                    sizes="(max-width: 768px) 100vw, 1200px"
+                    type="image/webp">
 
                 <source
-                    srcset="../imagens/ong-voluntariado.png"
-                    type="image/png">
+                    srcset="../imagens/nossa-ong-1200.jpg"
+                    type="image/jpeg">
 
                 <img
-                    src="../imagens/ong-voluntariado.jpg"
-                    alt="Ilustração de pessoas voluntárias reunidas em uma ação social">
-
+                    src="../imagens/nossa-ong-1200.jpg"
+                    alt="Grupo de pessoas unidas em ação solidária promovida pela ONG"
+                    width="1200"
+                    height="600"
+                    loading="lazy"
+                    decoding="async">
             </picture>
 
             <p>

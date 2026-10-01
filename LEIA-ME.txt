@@ -1,0 +1,17 @@
+PROJETO FRONT-END - ONG
+
+Estrutura:
+projeto_ong_frontend/
+├── index.html
+├── projetos.html
+├── cadastro.html
+├── codigo-fonte-consolidado.txt
+└── img/
+    ├── ong-voluntariado.jpg
+    └── ong-voluntariado.png
+
+A plataforma da faculdade não aceitou WebP, portanto o projeto usa JPG e PNG.
+
+VALIDAÇÃO W3C:
+Valide separadamente index.html, projetos.html e cadastro.html no W3C Validator.
+Não informe no trabalho que o resultado foi "sem erros" antes de validar os três arquivos.

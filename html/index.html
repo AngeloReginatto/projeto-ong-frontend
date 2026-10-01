@@ -9,9 +9,19 @@
 </head>
 
 <body>
-
+    <a class="link-pular" href="#app">
+        Pular para o conteúdo principal
+    </a>
     <header>
         <h1>Nossa ONG</h1>
+
+        <button
+            type="button"
+            id="alternar-tema"
+            class="botao-tema"
+            aria-label="Alternar entre tema claro e escuro">
+            Tema claro
+        </button>
 
         <nav class="menu-principal" aria-label="Navegação principal">
 
@@ -41,11 +51,14 @@
                     <button
                         type="button"
                         class="submenu-trigger"
-                        aria-haspopup="true">
+                        aria-expanded="false"
+                        aria-controls="submenu-projetos">
                         Projetos
                     </button>
 
-                    <ul class="submenu">
+                    <ul
+                        id="submenu-projetos"
+                        class="submenu">
 
                         <li>
                             <a href="#projetos/campanhas">
@@ -73,7 +86,7 @@
 
     </header>
 
-    <main id="app"></main>
+    <main id="app" tabindex="-1"></main>
 
     <footer>
         <p>&copy; 2026 Nossa ONG. Todos os direitos reservados.</p>

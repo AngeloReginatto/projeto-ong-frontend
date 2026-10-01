@@ -12,6 +12,30 @@
     --cor-texto: #1F2937;
     --cor-texto-secundario: #4B5563;
     --cor-borda: #D1D5DB;
+    --cor-texto-botao: #FFFFFF;
+    --cor-fundo-sucesso: #F1F8F4;
+    --cor-fundo-erro: #FFF5F5;
+
+    --cor-alerta-info-texto: #1D4E89;
+    --cor-alerta-info-fundo: #EDF5FC;
+
+    --cor-alerta-sucesso-texto: #1F653B;
+    --cor-alerta-sucesso-fundo: #EDF8F1;
+
+    --cor-alerta-erro-texto: #7A201A;
+    --cor-alerta-erro-fundo: #FFF1F0;
+
+    --cor-badge-doacao-texto: #8A4B08;
+    --cor-badge-doacao-fundo: #FFF4E5;
+    --cor-badge-doacao-borda: #F0B45A;
+
+    --cor-badge-voluntariado-texto: #1D4E89;
+    --cor-badge-voluntariado-fundo: #EAF2FB;
+    --cor-badge-voluntariado-borda: #8CB5DD;
+
+    --cor-badge-ativo-texto: #1F653B;
+    --cor-badge-ativo-fundo: #EAF7EF;
+    --cor-badge-ativo-borda: #85C49C;
 
     /* Tipografia */
     --fonte-principal: Arial, Helvetica, sans-serif;
@@ -29,6 +53,109 @@
     --espaco-lg: 1.5rem;
     --espaco-xl: 2rem;
     --espaco-xxl: 3rem;
+}
+
+/* Tema escuro definido pelo sistema */
+@media (prefers-color-scheme: dark) {
+
+    :root:not([data-tema="claro"]) {
+        color-scheme: dark;
+
+        --cor-primaria: #60A5FA;
+        --cor-secundaria: #6EE7B7;
+        --cor-destaque: #F59E0B;
+        --cor-sucesso: #86EFAC;
+        --cor-erro: #FCA5A5;
+
+        --cor-fundo: #0F172A;
+        --cor-superficie: #1E293B;
+
+        --cor-texto: #F8FAFC;
+        --cor-texto-secundario: #CBD5E1;
+        --cor-borda: #64748B;
+
+        --cor-texto-botao: #0F172A;
+
+        --cor-fundo-sucesso: #143322;
+        --cor-fundo-erro: #3F1D23;
+        
+        --cor-alerta-info-texto: #BFDBFE;
+        --cor-alerta-info-fundo: #172554;
+
+        --cor-alerta-sucesso-texto: #BBF7D0;
+        --cor-alerta-sucesso-fundo: #143322;
+
+        --cor-alerta-erro-texto: #FECACA;
+        --cor-alerta-erro-fundo: #3F1D23;
+
+        --cor-badge-doacao-texto: #FDE68A;
+        --cor-badge-doacao-fundo: #422006;
+        --cor-badge-doacao-borda: #F59E0B;
+
+        --cor-badge-voluntariado-texto: #BFDBFE;
+        --cor-badge-voluntariado-fundo: #172554;
+        --cor-badge-voluntariado-borda: #60A5FA;
+
+        --cor-badge-ativo-texto: #BBF7D0;
+        --cor-badge-ativo-fundo: #143322;
+        --cor-badge-ativo-borda: #86EFAC;        
+    }
+}
+
+/* Tema escuro escolhido manualmente */
+    :root[data-tema="escuro"] {
+        color-scheme: dark;
+
+        --cor-primaria: #60A5FA;
+        --cor-secundaria: #6EE7B7;
+        --cor-destaque: #F59E0B;
+        --cor-sucesso: #86EFAC;
+        --cor-erro: #FCA5A5;
+
+        --cor-fundo: #0F172A;
+        --cor-superficie: #1E293B;
+
+        --cor-texto: #F8FAFC;
+        --cor-texto-secundario: #CBD5E1;
+        --cor-borda: #64748B;
+
+        --cor-texto-botao: #0F172A;
+
+        --cor-fundo-sucesso: #143322;
+        --cor-fundo-erro: #3F1D23;
+
+        --cor-alerta-info-texto: #BFDBFE;
+        --cor-alerta-info-fundo: #172554;
+
+        --cor-alerta-sucesso-texto: #BBF7D0;
+        --cor-alerta-sucesso-fundo: #143322;
+
+        --cor-alerta-erro-texto: #FECACA;
+        --cor-alerta-erro-fundo: #3F1D23;
+
+        --cor-badge-doacao-texto: #FDE68A;
+        --cor-badge-doacao-fundo: #422006;
+        --cor-badge-doacao-borda: #F59E0B;
+
+        --cor-badge-voluntariado-texto: #BFDBFE;
+        --cor-badge-voluntariado-fundo: #172554;
+        --cor-badge-voluntariado-borda: #60A5FA;
+
+        --cor-badge-ativo-texto: #BBF7D0;
+        --cor-badge-ativo-fundo: #143322;
+        --cor-badge-ativo-borda: #86EFAC; 
+    }
+
+
+/* Tema claro escolhido manualmente */
+:root[data-tema="claro"] {
+    color-scheme: light;
+}
+
+/* Cores globais da página */
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
 }
 
 /* Sistema de Grid responsivo de 12 colunas */
@@ -251,7 +378,7 @@ form fieldset {
     position: relative;
 }
 
-/* No mobile, o submenu aparece dentro do menu aberto */
+/* Submenu inicialmente oculto */
 .submenu {
     display: flex;
     flex-direction: column;
@@ -265,6 +392,25 @@ form fieldset {
         0
         0
         var(--espaco-md);
+
+    max-height: 0;
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* Submenu aberto */
+.tem-submenu.submenu-aberto > .submenu {
+    max-height: 12rem;
+
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
 }
 
 /* Acessibilidade pelo teclado */
@@ -336,9 +482,10 @@ form fieldset {
             visibility 0.25s ease;
     }
 
-    /* Exibição do dropdown por mouse ou teclado */
-    .tem-submenu:hover > .submenu,
-    .tem-submenu:focus-within > .submenu {
+    /* Exibição do dropdown quando acionado */
+    .tem-submenu.submenu-aberto > .submenu {
+        max-height: 12rem;
+
         opacity: 1;
         visibility: visible;
 
@@ -398,12 +545,14 @@ form input:not([type="radio"]) {
 
 form input:not([type="radio"]).campo-sucesso {
     border-color: var(--cor-sucesso);
-    background-color: #F1F8F4;
+    background-color: var(--cor-fundo-sucesso);
+    color: var(--cor-texto);
 }
 
 form input:not([type="radio"]).campo-erro {
     border-color: var(--cor-erro);
-    background-color: #FFF5F5;
+    background-color: var(--cor-fundo-erro);
+    color: var(--cor-texto);
 }
 
 .mensagem-validacao {
@@ -421,8 +570,8 @@ fieldset.grupo-erro {
 }
 
 .alerta-erro {
-    color: #7A201A;
-    background-color: #FFF1F0;
+    color: var(--cor-alerta-erro-texto);
+    background-color: var(--cor-alerta-erro-fundo);
     border-left-color: var(--cor-erro);
 }
 
@@ -447,7 +596,7 @@ form input:not([type="radio"]):focus {
 
 form button[type="submit"] {
     background-color: var(--cor-primaria);
-    color: #FFFFFF;
+    color: var(--cor-texto-botao);
 
     border: 2px solid var(--cor-primaria);
     border-radius: 8px;
@@ -531,21 +680,21 @@ form button[type="submit"]:disabled {
 }
 
 .badge-doacao {
-    color: #8A4B08;
-    background-color: #FFF4E5;
-    border: 1px solid #F0B45A;
+    color: var(--cor-badge-doacao-texto);
+    background-color: var(--cor-badge-doacao-fundo);
+    border: 1px solid var(--cor-badge-doacao-borda);
 }
 
 .badge-voluntariado {
-    color: #1D4E89;
-    background-color: #EAF2FB;
-    border: 1px solid #8CB5DD;
+    color: var(--cor-badge-voluntariado-texto);
+    background-color: var(--cor-badge-voluntariado-fundo);
+    border: 1px solid var(--cor-badge-voluntariado-borda);
 }
 
 .badge-ativo {
-    color: #1F653B;
-    background-color: #EAF7EF;
-    border: 1px solid #85C49C;
+    color: var(--cor-badge-ativo-texto);
+    background-color: var(--cor-badge-ativo-fundo);
+    border: 1px solid var(--cor-badge-ativo-borda);
 }
 
 
@@ -567,14 +716,14 @@ form button[type="submit"]:disabled {
 }
 
 .alerta-informacao {
-    color: var(--cor-primaria-escura);
-    background-color: #EDF5FC;
+    color: var(--cor-alerta-info-texto);
+    background-color: var(--cor-alerta-info-fundo);
     border-left-color: var(--cor-primaria);
 }
 
 .alerta-sucesso {
-    color: #1F653B;
-    background-color: #EDF8F1;
+    color: var(--cor-alerta-sucesso-texto);
+    background-color: var(--cor-alerta-sucesso-fundo);
     border-left-color: var(--cor-sucesso);
 }
 
@@ -607,7 +756,7 @@ form button[type="submit"]:disabled {
 }
 
 .toast-sucesso {
-    color: #1F653B;
+    color: var(--cor-sucesso);
 
     background-color: var(--cor-superficie);
 
@@ -623,4 +772,56 @@ form button[type="submit"]:disabled {
 .toast span {
     color: var(--cor-texto-secundario);
     font-size: var(--texto-xs);
+}
+
+/* Link de salto para navegação por teclado */
+.link-pular {
+    position: absolute;
+    top: -100px;
+    left: var(--espaco-md);
+    z-index: 1000;
+
+    padding: var(--espaco-sm) var(--espaco-md);
+
+    color: #FFFFFF;
+    background-color: var(--cor-primaria-escura);
+
+    font-weight: bold;
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.link-pular:focus,
+.link-pular:focus-visible {
+    top: var(--espaco-md);
+
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+}
+
+/* Botão de alternância de tema */
+
+.botao-tema {
+    padding: var(--espaco-sm) var(--espaco-md);
+
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+
+    border: 2px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font: inherit;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.botao-tema:hover {
+    border-color: var(--cor-primaria);
+}
+
+.botao-tema:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
 }

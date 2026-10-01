@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nossa ONG - Projetos Sociais</title>
@@ -8,12 +9,55 @@
 <body>
   <header>
     <h1>Projetos Sociais</h1>
-    <nav aria-label="Navegação principal">
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="cadastro.html">Participe</a></li>
-      </ul>
+    <nav class="menu-principal" aria-label="Navegação principal">
+
+        <input
+            type="checkbox"
+           id="menu-toggle"
+            class="menu-toggle">
+
+        <label for="menu-toggle" class="menu-hamburguer">
+            <span class="icone-hamburguer" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+           </span>
+           <span>Menu</span>
+       </label>
+
+       <ul class="menu-lista">
+            <li>
+                <a href="index.html">Início</a>
+            </li>
+
+            <li class="tem-submenu">
+                <button
+                   type="button"
+                   class="submenu-trigger"
+                   aria-haspopup="true">
+                    Projetos
+                </button>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="projetos.html#campanhas">
+                            Campanhas de doação
+                        </a>
+                   </li>
+
+                    <li>
+                       <a href="projetos.html#voluntariado">
+                           Voluntariado
+                        </a>
+                   </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="cadastro.html">Participe</a>
+            </li>
+        </ul>
+
     </nav>
   </header>
 
@@ -30,10 +74,28 @@
       <p>Nossos projetos buscam atender necessidades da comunidade por meio de campanhas solidárias, arrecadações e ações de voluntariado.</p>
     </section>
 
-    <section>
+    <section class="area-alertas">
+       <h2>Atualizações dos projetos</h2>
+
+       <div class="alerta alerta-informacao" role="status">
+            <strong>Informação:</strong>
+            A campanha de arrecadação está recebendo novas doações.
+       </div>
+
+    <div class="alerta alerta-sucesso" role="status">
+        <strong>Projeto ativo:</strong>
+        As inscrições para trabalho voluntário estão abertas.
+    </div>
+</section>
+
+    <section id="campanhas">
       <h2>Campanhas de doação</h2>
       <article>
         <h3>Campanha de alimentos</h3>
+        <div class="badges-projeto">
+           <span class="badge badge-doacao">Doação</span>
+            <span class="badge badge-ativo">Ativo</span>
+        </div>        
         <p>Arrecadamos alimentos não perecíveis destinados a famílias em situação de vulnerabilidade social.</p>
         <ul>
           <li>Arroz, feijão e massas.</li>
@@ -43,10 +105,14 @@
       </article>
     </section>
 
-    <section>
+    <section id="voluntariado">
       <h2>Oportunidades de voluntariado</h2>
       <article>
         <h3>Participação em ações sociais</h3>
+        <div class="badges-projeto">
+            <span class="badge badge-voluntariado">Voluntariado</span>
+            <span class="badge badge-ativo">Ativo</span>
+        </div>
         <p>Pessoas voluntárias podem colaborar na organização das campanhas, separação das doações e atendimento às atividades promovidas pela ONG.</p>
         <ul>
           <li>Apoio em campanhas de arrecadação.</li>
@@ -61,6 +127,14 @@
       <p>Para contribuir financeiramente ou realizar trabalho voluntário, acesse a página de cadastro e informe seus dados e sua forma de participação.</p>
       <p><a href="cadastro.html">Acessar cadastro de participação</a></p>
     </section>
+    <div class="toast toast-sucesso"
+         role="status"
+        aria-live="polite">
+
+       <strong>Participação disponível</strong>
+       <span>Cadastre-se para colaborar com nossos projetos.</span>
+
+    </div>
   </main>
 
   <footer>

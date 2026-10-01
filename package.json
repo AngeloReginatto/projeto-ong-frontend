@@ -1,0 +1,27 @@
+{
+  "name": "projeto_ong_frontend",
+  "version": "1.0.0",
+  "description": "Projeto acadêmico desenvolvido na disciplina de Desenvolvimento Front-End para Web da Universidade Cruzeiro do Sul.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bash scripts/build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngeloReginatto/projeto-ong-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AngeloReginatto/projeto-ong-frontend/issues"
+  },
+  "homepage": "https://github.com/AngeloReginatto/projeto-ong-frontend#readme",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.51.2"
+  }
+}

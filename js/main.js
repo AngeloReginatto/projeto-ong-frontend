@@ -3,6 +3,156 @@ const app =
         'app'
     );
 
+/* =========================================================
+   TEMA CLARO E ESCURO
+   ========================================================= */
+
+const botaoTema =
+    document.getElementById(
+        'alternar-tema'
+    );
+
+
+const preferenciaTemaSistema =
+    window.matchMedia(
+        '(prefers-color-scheme: dark)'
+    );
+
+
+const temaSalvo =
+    localStorage.getItem(
+        'tema'
+    );
+
+
+if (
+    temaSalvo === 'claro' ||
+    temaSalvo === 'escuro'
+) {
+
+    document.documentElement
+        .setAttribute(
+            'data-tema',
+            temaSalvo
+        );
+}
+
+
+function obterTemaAtual() {
+
+    const temaManual =
+        document.documentElement
+            .getAttribute(
+                'data-tema'
+            );
+
+
+    if (
+        temaManual === 'claro' ||
+        temaManual === 'escuro'
+    ) {
+
+        return temaManual;
+    }
+
+
+    return preferenciaTemaSistema.matches
+        ? 'escuro'
+        : 'claro';
+}
+
+
+function atualizarBotaoTema() {
+
+    if (!botaoTema) {
+        return;
+    }
+
+
+    const temaAtual =
+        obterTemaAtual();
+
+
+    if (temaAtual === 'escuro') {
+
+        botaoTema.textContent =
+            'Tema claro';
+
+        botaoTema.setAttribute(
+            'aria-label',
+            'Ativar tema claro'
+        );
+
+    } else {
+
+        botaoTema.textContent =
+            'Tema escuro';
+
+        botaoTema.setAttribute(
+            'aria-label',
+            'Ativar tema escuro'
+        );
+    }
+}
+
+
+if (botaoTema) {
+
+    atualizarBotaoTema();
+
+
+    botaoTema.addEventListener(
+        'click',
+        () => {
+
+            const temaAtual =
+                obterTemaAtual();
+
+
+            const novoTema =
+                temaAtual === 'escuro'
+                    ? 'claro'
+                    : 'escuro';
+
+
+            document.documentElement
+                .setAttribute(
+                    'data-tema',
+                    novoTema
+                );
+
+
+            localStorage.setItem(
+                'tema',
+                novoTema
+            );
+
+
+            atualizarBotaoTema();
+        }
+    );
+}
+
+
+preferenciaTemaSistema.addEventListener(
+    'change',
+    () => {
+
+        const preferenciaSalva =
+            localStorage.getItem(
+                'tema'
+            );
+
+
+        if (
+            preferenciaSalva !== 'claro' &&
+            preferenciaSalva !== 'escuro'
+        ) {
+
+            atualizarBotaoTema();
+        }
+    }
+);
 
 /* =========================================================
    ROTEAMENTO DA SPA
@@ -118,6 +268,65 @@ function renderizarRota() {
     }
 }
 
+/* =========================================================
+   ACESSIBILIDADE DO SUBMENU
+   ========================================================= */
+
+const submenuTrigger =
+    document.querySelector(
+        '.submenu-trigger'
+    );
+
+const itemSubmenu =
+    submenuTrigger?.closest(
+        '.tem-submenu'
+    );
+
+
+if (
+    submenuTrigger &&
+    itemSubmenu
+) {
+
+    submenuTrigger.addEventListener(
+        'click',
+        () => {
+
+            const aberto =
+                itemSubmenu.classList.toggle(
+                    'submenu-aberto'
+                );
+
+            submenuTrigger.setAttribute(
+                'aria-expanded',
+                String(aberto)
+            );
+        }
+    );
+
+
+    itemSubmenu.addEventListener(
+        'focusout',
+        event => {
+
+            if (
+                !itemSubmenu.contains(
+                    event.relatedTarget
+                )
+            ) {
+
+                itemSubmenu.classList.remove(
+                    'submenu-aberto'
+                );
+
+                submenuTrigger.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+            }
+        }
+    );
+}
 
 /* =========================================================
    NAVEGAÇÃO DA SPA
@@ -158,6 +367,24 @@ document.addEventListener(
             !destino ||
             destino === '#'
         ) {
+            return;
+        }
+
+
+        /* Link de salto para o conteúdo principal */
+        if (destino === '#app') {
+
+            event.preventDefault();
+
+            if (app) {
+                app.focus();
+
+                app.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+
             return;
         }
 
@@ -362,7 +589,7 @@ if (app) {
 
                 const primeiroErro =
                     formulario.querySelector(
-                        '.campo-erro'
+                        '.campo-erro, fieldset.grupo-erro input[type="radio"]'
                     );
 
 
